@@ -1,3 +1,12 @@
+# About
+
+```bash
+  // Following this tutorial
+  // He is using TypeOrm and i am using mongodb
+  https://www.youtube.com/playlist?list=PLkZU2rKh1mT-3VvYvGCdRVCCJ5lCtOKED
+
+```
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>

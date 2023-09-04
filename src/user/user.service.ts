@@ -9,7 +9,7 @@ export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   async register(userRegisterDto: UserRegisterReqDto) {
-    const { name, email, password, confirm } = userRegisterDto;
+    const { name, email, password, confirm, role } = userRegisterDto;
 
     if (password !== confirm) {
       console.log('err');
@@ -19,6 +19,7 @@ export class UserService {
       name,
       email,
       password,
+      role,
     });
 
     return user;
@@ -27,6 +28,11 @@ export class UserService {
   async getUserByEmail(email: string): Promise<User> {
     const user = await this.userModel.findOne({ email });
 
+    return user;
+  }
+
+  async findUser(id: string) {
+    const user = await this.userModel.findById(id).select('-password');
     return user;
   }
 }

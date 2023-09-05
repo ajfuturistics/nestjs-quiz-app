@@ -31,7 +31,7 @@ export class UserService {
     return user;
   }
 
-  async findUser(id: string) {
+  async getUserById(id: string) {
     const user = await this.userModel.findById(id).select('-password');
     return user;
   }

@@ -23,6 +23,7 @@ import {
 } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Quiz } from './schemas/quiz.schema';
+import { AdminRoleGuard } from 'src/auth/admin-role.guard';
 
 @ApiTags('Quiz')
 @ApiBearerAuth()
@@ -82,6 +83,7 @@ export class QuizController {
   @Post()
   @UsePipes(ValidationPipe)
   @ApiCreatedResponse({ description: 'Create new Quiz', type: Quiz })
+  @UseGuards(AdminRoleGuard)
   createQuiz(@Body() quizData: CreateQuizDto) {
     return this.quizService.create(quizData);
   }

@@ -28,7 +28,7 @@ export class UserController {
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
   async getUser(@Req() req) {
-    return await this.userService.findUser(req.user.id);
+    return await this.userService.getUserById(req.user.id);
   }
 
   @Post('/register')
